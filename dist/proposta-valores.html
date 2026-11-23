@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico Digital, Exemplos e Catálogo de Valores — Ale Uniformes | DLuz Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cotton: #f6f5f0;
+      --plate: #ffffff;
+      --ink: #111315;
+      --ink-secondary: #434952;
+      --rule: #d3d0c8;
+      --rule-strong: #9fa3aa;
+      --crimson: #c81e24;
+      --whatsapp: #047857;
+      --radius: 2px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    ::selection { background: var(--crimson); color: #ffffff; }
+
+    body {
+      margin: 0;
+      background: var(--cotton);
+      color: var(--ink);
+      font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 14.5px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-underline-offset: 4px; }
+    .tabular { font-variant-numeric: tabular-nums; }
+    :focus-visible { outline: 2px solid var(--crimson); outline-offset: 2px; }
+
+    .control-bar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(246, 245, 240, 0.96);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .control-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .control-brand {
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .control-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .btn-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 1px solid var(--rule-strong);
+      border-radius: var(--radius);
+      background: var(--plate);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-bar:hover { border-color: var(--ink); }
+    .btn-bar.crimson { background: var(--crimson); border-color: var(--crimson); color: #ffffff; }
+    .btn-bar.wa { background: var(--whatsapp); border-color: var(--whatsapp); color: #ffffff; }
+
+    .sheet {
+      max-width: 1080px;
+      margin: 28px auto 48px;
+      background: var(--plate);
+      border: 1px solid var(--rule);
+    }
+
+    .sheet-head {
+      padding: 36px 36px 28px;
+      border-bottom: 1px solid var(--ink);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+    }
+
+    .head-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .head-brand-row img {
+      height: 62px;
+      width: auto;
+      display: block;
+    }
+
+    .sheet-head h1 {
+      margin: 0;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(2rem, 3.6vw, 2.85rem);
+      font-weight: 800;
+      line-height: 0.98;
+      color: var(--ink);
+    }
+
+    .sheet-head-sub {
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: var(--ink-secondary);
+    }
+
+    .sheet-meta {
+      text-align: right;
+      font-size: 13px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    .sheet-meta strong { display: block; font-size: 15px; color: var(--ink); }
+
+    .sheet-block {
+      padding: 32px 36px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .sheet-block:last-of-type { border-bottom: 0; }
+
+    .sheet-block h2 {
+      margin: 0 0 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.04;
+      color: var(--ink);
+    }
+
+    .block-intro {
+      margin: 0 0 22px;
+      font-size: 14.5px;
+      color: var(--ink-secondary);
+      max-width: 72ch;
+    }
+
+    /* Audit Table */
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 1px solid var(--ink);
+      font-size: 13.5px;
+    }
+
+    .audit-table th, .audit-table td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .audit-table th {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-secondary);
+      background: var(--cotton);
+    }
+
+    .status-gap { color: var(--crimson); font-weight: 600; }
+    .status-plan { color: var(--ink); font-weight: 500; }
+
+    /* Visual Samples Grid */
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--rule);
+      border-left: 1px solid var(--rule);
+    }
+
+    .sample-cell {
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      background: var(--plate);
+    }
+
+    .sample-cell img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      border-bottom: 1px solid var(--rule);
+      background: var(--cotton);
+    }
+
+    .sample-meta {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .sample-meta h3 { margin: 0; font-size: 15.5px; font-weight: 700; color: var(--ink); }
+    .sample-meta p { margin: 4px 0 0; font-size: 13.5px; color: var(--ink-secondary); }
+    .sample-link { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--crimson); }
+
+    .reels-strip {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border: 1px solid var(--rule);
+      background: var(--cotton);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    /* Package Matrix */
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--rule);
+    }
+
+    .pkg-cell {
+      padding: 22px 24px;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      background: var(--plate);
+    }
+
+    .pkg-cell.recommended {
+      background: #fdf6f6;
+      box-shadow: inset 0 0 0 1px var(--crimson);
+    }
+
+    .pkg-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--crimson);
+    }
+
+    .pkg-cell h3 { margin: 4px 0 4px; font-size: 18px; font-weight: 700; color: var(--ink); }
+    .pkg-desc { margin: 0; font-size: 13.5px; color: var(--ink-secondary); }
+
+    .price-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--rule);
+      background: var(--plate);
+    }
+
+    .price-slot { padding: 12px 14px; }
+    .price-slot:first-child {
+      border-right: 1px solid var(--rule);
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .price-slot span {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      opacity: 0.85;
+    }
+
+    .price-slot b {
+      display: block;
+      margin-top: 2px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .savings-line {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--whatsapp);
+      padding: 6px 10px;
+      border: 1px solid var(--rule);
+      background: var(--cotton);
+    }
+
+    .pkg-list { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-secondary); }
+    .pkg-list li { margin-bottom: 5px; }
+
+    /* Standalone Catalog */
+    .catalog-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 1px solid var(--ink);
+      font-size: 13px;
+    }
+
+    .ledger-table th, .ledger-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--rule);
+      text-align: left;
+    }
+
+    .ledger-table th {
+      background: var(--cotton);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-secondary);
+    }
+
+    .ledger-table td.val { text-align: right; font-weight: 700; white-space: nowrap; color: var(--ink); }
+    .ledger-table td small { display: block; font-size: 12px; color: var(--ink-secondary); }
+
+    .terms-box {
+      margin-top: 24px;
+      padding: 18px 22px;
+      border: 1px solid var(--rule);
+      background: var(--cotton);
+    }
+
+    .terms-box h3 { margin: 0 0 8px; font-size: 14.5px; font-weight: 700; }
+    .terms-box ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-secondary); }
+    .terms-box li { margin-bottom: 4px; }
+
+    .sheet-footer {
+      padding: 18px 36px;
+      border-top: 1px solid var(--rule);
+      background: var(--cotton);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12.5px;
+      color: var(--ink-secondary);
+    }
+
+    @media (max-width: 820px) {
+      .sheet { margin: 0; border-left: 0; border-right: 0; }
+      .sheet-head { grid-template-columns: 1fr; padding: 24px 16px; }
+      .sheet-meta { text-align: left; }
+      .sheet-block { padding: 24px 16px; }
+      .samples-grid, .pkg-grid, .catalog-cols { grid-template-columns: 1fr; }
+      .audit-table thead { display: none; }
+      .audit-table, .audit-table tbody, .audit-table tr, .audit-table td { display: block; width: 100%; }
+      .audit-table tr { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+      .audit-table td { border-bottom: 0; padding: 4px 0; }
+      .sheet-footer { padding: 16px; }
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .control-bar { display: none !important; }
+      .sheet { margin: 0; border: 0; max-width: 100%; }
+      .sheet-head, .sheet-block, .sheet-footer { padding-left: 16px; padding-right: 16px; }
+      .pkg-cell, .sample-cell, .terms-box { break-inside: avoid; }
+      @page { size: A4; margin: 8mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="control-bar">
+    <div class="control-inner">
+      <div class="control-brand">DLUZ DIGITAL · CADERNO COMERCIAL PARA ALE UNIFORMES</div>
+      <div class="control-actions">
+        <a href="index.html" target="_blank" class="btn-bar crimson">Abrir Site Demonstrativo</a>
+        <button type="button" onclick="window.print()" class="btn-bar">Imprimir / Salvar PDF A4</button>
+        <a href="https://wa.me/5563992284934" target="_blank" rel="noopener" class="btn-bar wa tabular">WhatsApp (63) 99228-4934</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheet">
+    <header class="sheet-head">
+      <div>
+        <div class="head-brand-row">
+          <img src="assets/logo_ale.png" alt="Ale Uniformes" />
+        </div>
+        <h1>Ale Uniformes — Diagnóstico &amp; Catálogo de Valores</h1>
+        <p class="sheet-head-sub tabular">R. Daniel Milhomem · Paraíso do Tocantins - TO · WhatsApp (63) 99228-4934 · @aleuniformess</p>
+      </div>
+      <div class="sheet-meta">
+        <strong>DLuz Digital</strong>
+        Paraíso do Tocantins - TO<br />
+        digital.dluz.com.br<br />
+        Proposta válida por 15 dias
+      </div>
+    </header>
+
+    <!-- Audit Table -->
+    <section class="sheet-block">
+      <h2>Diagnóstico da presença atual e plano de ação</h2>
+      <p class="block-intro">Levantamento direto da ficha do Google Maps, perfil real do Instagram (@aleuniformess), Facebook e concorrentes locais em Paraíso do Tocantins.</p>
+
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th style="width: 19%;">Canal avaliado</th>
+            <th style="width: 40%;">O que encontramos hoje</th>
+            <th style="width: 41%;">O que precisa ser feito</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Site Próprio</strong></td>
+            <td class="status-gap">Inexistente. No Google Maps o campo de website está vazio. Concorrentes da cidade (Efeitu, Dferrero e VEJA Uniformes) já possuem site próprio ranqueado.</td>
+            <td class="status-plan">Publicar site próprio rápido com portfólio separado por linha (Esportivo, Pesca UV, Empresarial, Interclasse/Formandos) e botão direto de orçamento no WhatsApp (63) 99228-4934.</td>
+          </tr>
+          <tr>
+            <td><strong>Google Meu Negócio</strong></td>
+            <td class="status-gap">Tem nota máxima 5,0 (6 avaliações de 8 meses atrás), porém a ficha NÃO foi reivindicada, está sem número do endereço, sem website e a única foto exibida é do Google Street View da esquina (zero fotos das camisas/loja).</td>
+            <td class="status-plan">Reivindicar e otimizar o perfil completo, completar endereço e horário, vincular o site oficial, subir fotos reais das peças produzidas e publicar 4 atualizações/mês.</td>
+          </tr>
+          <tr>
+            <td><strong>Instagram<br />@aleuniformess</strong></td>
+            <td class="status-gap">681 seguidores com movimentação constante nos Stories (entregas recentes como JMS F.C. e linha esportiva #japs) e ótimas peças reais, porém o que vai só para os Stories some em 24h. A bio tem telefone e link wa.me, mas não diz a cidade ("Paraíso - TO"), não lista os serviços nem o endereço, e o @ tem dois "s".</td>
+            <td class="status-plan">Preencher a bio com cidade, especialidades (Esportivo, Pesca UV, Polos Bordadas, Formandos) e site; transformar os registros diários dos Stories em carrosséis permanentes no Feed, Reels com legenda que gera orçamento e Destaques organizados.</td>
+          </tr>
+          <tr>
+            <td><strong>Facebook &amp; Tráfego Pago</strong></td>
+            <td class="status-gap">Sem página comercial localizada para Paraíso integrada ao Instagram e sem anúncios ativos para captar empresas, times e escolas na região.</td>
+            <td class="status-plan">Criar/integrar Facebook + Meta Business + Pixel no site e rodar anúncios locais (~40.200 pessoas conectadas em Paraíso) por nicho: camisas de pesca UV, empresas e times de futebol.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Visual Examples -->
+    <section class="sheet-block">
+      <h2>Exemplos prontos usando a logo e peças reais da Ale Uniformes</h2>
+      <p class="block-intro">Criados diretamente com a logo oficial vermelha e uniformes reais publicados no perfil @aleuniformess (APAH, ASAP, Traterra, CMTO, Turfe TO e Pesca UV).</p>
+
+      <div class="samples-grid">
+        <article class="sample-cell">
+          <img src="assets/esportivo_apah.jpg" alt="Site demonstrativo da Ale Uniformes" />
+          <div class="sample-meta">
+            <div>
+              <h3>Site + Catálogo por Linha</h3>
+              <p>Página rápida com seleção interativa das 5 linhas de produção, galeria com 9 peças reais da loja e chamada direta no WhatsApp (63) 99228-4934.</p>
+            </div>
+            <a href="index.html" target="_blank" class="sample-link">Abrir site demonstrativo →</a>
+          </div>
+        </article>
+
+        <article class="sample-cell">
+          <img src="assets/arte_feed_exemplo.jpg" alt="Arte exemplo de Feed Instagram para Ale Uniformes" />
+          <div class="sample-meta">
+            <div>
+              <h3>Arte de Feed · Esportivo &amp; Pesca UV</h3>
+              <p>Post comercial com recorte limpo de duas peças reais da loja (camisa APAH + camisa de pesca UV), logo oficial vermelha no topo e telefone WhatsApp embaixo.</p>
+            </div>
+            <span class="sample-link" style="color:var(--ink-secondary);">Pronta para postar (assets/arte_feed_exemplo.jpg)</span>
+          </div>
+        </article>
+
+        <article class="sample-cell">
+          <img src="assets/arte_stories_exemplo.jpg" alt="Arte Stories / Anúncio para Ale Uniformes" />
+          <div class="sample-meta">
+            <div>
+              <h3>Criativo Stories / Anúncio 9:16</h3>
+              <p>Modelo vertical pronto para Instagram Stories e tráfego pago em Paraíso focado em polos empresariais bordadas e turmas escolares/formandos.</p>
+            </div>
+            <span class="sample-link" style="color:var(--ink-secondary);">Pronto para anúncio (assets/arte_stories_exemplo.jpg)</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="reels-strip">
+        <strong>Exemplo de roteiro pronto para Reels (25 segundos, gravado só com as camisas prontas antes da entrega):</strong><br />
+        <strong>0–3s (Gancho visual):</strong> Close rápido na camisa de pesca UV preta/vermelha abrindo o zíper com texto na tela: <em>"Procurando uniforme que não desbota em Paraíso?"</em><br />
+        <strong>3–18s (Cortes de 2s por categoria):</strong> Uniforme esportivo APAH → Polo empresarial Traterra → Arbitragem ASAP → Interclasse CMTO → Proteção UV Pesca.<br />
+        <strong>18–25s (Chamada WhatsApp):</strong> Mesa com pacotes dobrados prontos + texto: <em>"Arte própria e entrega no prazo em Paraíso. Orçamento no WhatsApp (63) 99228-4934!"</em>
+      </div>
+    </section>
+
+    <!-- Packages -->
+    <section class="sheet-block">
+      <h2>Opções de pacotes — quanto custa para começar e todo mês</h2>
+      <p class="block-intro">Valores oficiais da tabela DLuz Digital para Paraíso do Tocantins. A verba dos anúncios é paga à DLuz junto com a mensalidade e usada inteira na veiculação.</p>
+
+      <div class="pkg-grid">
+        <article class="pkg-cell">
+          <div>
+            <span class="pkg-tag">Opção 1 · Porta de Entrada</span>
+            <h3>Site Profissional no Ar</h3>
+            <p class="pkg-desc">Site exclusivo com vitrine por linha de uniforme, domínio .com.br, servidor e manutenção mensal.</p>
+          </div>
+          <div class="price-pair tabular">
+            <div class="price-slot">
+              <span>Para começar (1º mês)</span>
+              <b>R$ 1.355</b>
+            </div>
+            <div class="price-slot">
+              <span>Depois, todo mês</span>
+              <b>R$ 210/mês</b>
+            </div>
+          </div>
+          <ul class="pkg-list tabular">
+            <li><strong>Pagamento único:</strong> Criação do site (R$ 1.080).</li>
+            <li><strong>Anual:</strong> Registro e renovação de domínio (R$ 65/ano).</li>
+            <li><strong>Mensalidade:</strong> Manutenção do site (R$ 150/mês) + Servidor (R$ 60/mês).</li>
+            <li><em>Alternativa sem alterações mensais: R$ 1.205 no 1º mês (site + domínio + servidor) e R$ 60/mês só de servidor.</em></li>
+          </ul>
+        </article>
+
+        <article class="pkg-cell">
+          <div>
+            <span class="pkg-tag">Opção 2 · Essencial (Sem Anúncios)</span>
+            <h3>Google + Instagram + Facebook</h3>
+            <p class="pkg-desc">Reivindicar e organizar Google Meu Negócio + produção semanal no Instagram e Facebook.</p>
+          </div>
+          <div class="price-pair tabular">
+            <div class="price-slot">
+              <span>1º mês à DLuz (total)</span>
+              <b>R$ 1.593</b>
+            </div>
+            <div class="price-slot">
+              <span>Depois, todo mês</span>
+              <b>R$ 693/mês</b>
+            </div>
+          </div>
+          <div class="savings-line tabular">Economia de pacote: −R$ 300 na implantação (25% off) e −R$ 147/mês (17,5% off)</div>
+          <ul class="pkg-list tabular">
+            <li><strong>Implantação única:</strong> de <s>R$ 1.200</s> por <strong>R$ 900</strong> (ou 2x de R$ 450 = R$ 1.143 nos 2 primeiros meses).</li>
+            <li><strong>Mensalidade fixa:</strong> de <s>R$ 840</s> por <strong>R$ 693/mês</strong> (8 carrosséis/mês IG+FB + 4 posts Google Meu Negócio + manutenção).</li>
+          </ul>
+        </article>
+
+        <article class="pkg-cell recommended">
+          <div>
+            <span class="pkg-tag">Opção 3 · Mais Recomendada para Gerar Pedidos</span>
+            <h3>Pacote Completo + Tráfego Pago Local</h3>
+            <p class="pkg-desc">Google, Instagram, Facebook e anúncios locais em Paraíso captando empresas, times e escolas no WhatsApp.</p>
+          </div>
+          <div class="price-pair tabular">
+            <div class="price-slot">
+              <span>1º mês à DLuz (total)</span>
+              <b>R$ 2.180</b>
+            </div>
+            <div class="price-slot">
+              <span>Depois, todo mês à DLuz</span>
+              <b>R$ 1.280/mês</b>
+            </div>
+          </div>
+          <div class="savings-line tabular">Economia de pacote: −R$ 300 na implantação e −R$ 210/mês na gestão</div>
+          <ul class="pkg-list tabular">
+            <li><strong>Implantação única:</strong> de <s>R$ 1.200</s> por <strong>R$ 900</strong> (em até 2x de R$ 450 = R$ 1.730 nos 2 primeiros meses).</li>
+            <li><strong>Gestão fixa mensal:</strong> de <s>R$ 1.200</s> por <strong>R$ 990/mês</strong> (Redes + Gestão Tráfego + Google + Manutenção).</li>
+            <li><strong>Verba de anúncios:</strong> <strong>R$ 290/mês</strong> (paga à DLuz junto com a mensalidade; vai inteira para os anúncios, alcançando ~6.030 pessoas/mês em Paraíso).</li>
+            <li><em>Site novo opcional no mesmo pacote: +R$ 1.080 único (em 2x), +R$ 65/ano domínio e +R$ 60/mês servidor.</em></li>
+          </ul>
+        </article>
+
+        <article class="pkg-cell">
+          <div>
+            <span class="pkg-tag">Opção 4 · Completo com Gravação na Loja</span>
+            <h3>Premium + Captação Presencial + 4 Reels</h3>
+            <p class="pkg-desc">Tudo do Completo somado a 1 dia por mês fotografando e gravando 4 Reels das camisas prontas.</p>
+          </div>
+          <div class="price-pair tabular">
+            <div class="price-slot">
+              <span>1º mês à DLuz (total)</span>
+              <b>R$ 2.527</b>
+            </div>
+            <div class="price-slot">
+              <span>Depois, todo mês à DLuz</span>
+              <b>R$ 1.627/mês</b>
+            </div>
+          </div>
+          <div class="savings-line tabular">Economia de pacote: −R$ 300 na implantação e −R$ 283/mês na gestão</div>
+          <ul class="pkg-list tabular">
+            <li><strong>Implantação única:</strong> de <s>R$ 1.200</s> por <strong>R$ 900</strong> (em até 2x de R$ 450).</li>
+            <li><strong>Gestão fixa mensal:</strong> de <s>R$ 1.620</s> por <strong>R$ 1.337/mês</strong> (inclui captação presencial + 4 Reels editados).</li>
+            <li><strong>Verba de anúncios:</strong> <strong>R$ 290/mês</strong> (paga à DLuz junto com a mensalidade; vai inteira para os anúncios).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Itemized Catalog -->
+    <section class="sheet-block">
+      <h2>Catálogo de valores avulsos (tabela base Paraíso do Tocantins)</h2>
+      <p class="block-intro">Referência individual para contratação por item ou montagem sob medida conforme a prioridade da loja.</p>
+
+      <div class="catalog-cols">
+        <table class="ledger-table tabular">
+          <thead>
+            <tr>
+              <th>Pagamento único / anual</th>
+              <th style="text-align:right;">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Criação de site <small>Vitrine por linhas, portfólio real, WhatsApp, mapa</small></td><td class="val">R$ 1.080</td></tr>
+            <tr><td>Correção ou ampliação de site existente <small>Ajustes, novas seções, velocidade</small></td><td class="val">R$ 300</td></tr>
+            <tr><td>Otimização do Google Meu Negócio <small>Reivindicação, endereço completo, fotos reais, site</small></td><td class="val">R$ 240</td></tr>
+            <tr><td>Padronização de dados + nova bio <small>Cidade, especialidades, link WhatsApp/site na bio</small></td><td class="val">R$ 150</td></tr>
+            <tr><td>Facebook + Meta Business + Pixel <small>Página ligada ao Instagram e Pixel no site</small></td><td class="val">R$ 270</td></tr>
+            <tr><td>Identidade das redes <small>Modelos de carrossel e capas de destaque</small></td><td class="val">R$ 300</td></tr>
+            <tr><td>Setup de tráfego pago <small>Conta, públicos locais e campanhas iniciais</small></td><td class="val">R$ 240</td></tr>
+            <tr><td>Blog no site <small>Estrutura do blog, categorias e SEO básico</small></td><td class="val">R$ 300</td></tr>
+            <tr><td>Loja virtual no site (e-commerce) <small>Carrinho, pagamento online e frete</small></td><td class="val">R$ 900</td></tr>
+            <tr><td>Cadastro de produtos (pacote de 20) <small>Foto, descrição, preço e variações</small></td><td class="val">R$ 120</td></tr>
+            <tr><td>Anúncios dos produtos (catálogo) <small>Catálogo IG/FB e Google Shopping</small></td><td class="val">R$ 300</td></tr>
+            <tr><td>Domínio próprio (renovação anual) <small>Registro do endereço .com.br</small></td><td class="val">R$ 65/ano</td></tr>
+          </tbody>
+        </table>
+
+        <table class="ledger-table tabular">
+          <thead>
+            <tr>
+              <th>Mensalidade fixa / campanhas</th>
+              <th style="text-align:right;">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Gestão de Instagram + Facebook <small>8 carrosséis/mês (2/semana), legendas e stories</small></td><td class="val">R$ 540/mês</td></tr>
+            <tr><td>Gestão de tráfego pago <small>Campanhas, criativos e otimização (ritmo forte: R$ 420)</small></td><td class="val">R$ 360/mês</td></tr>
+            <tr><td>Gestão do Google Meu Negócio <small>4 posts/mês, fotos e respostas de avaliação</small></td><td class="val">R$ 150/mês</td></tr>
+            <tr><td>Manutenção do site <small>Atualizações, banners, correções e segurança</small></td><td class="val">R$ 150/mês</td></tr>
+            <tr><td>Servidor e hospedagem <small>Servidor, SSL, backup e monitoramento</small></td><td class="val">R$ 60/mês</td></tr>
+            <tr><td>Captação fotos/vídeos + 4 Reels <small>1 dia presencial na loja por mês</small></td><td class="val">R$ 420/mês</td></tr>
+            <tr><td>Posts no blog (SEO local) <small>4 artigos por mês para aparecer no Google</small></td><td class="val">R$ 240/mês</td></tr>
+            <tr><td>Gestão da loja virtual <small>Até 20 produtos novos/mês, estoque e pedidos</small></td><td class="val">R$ 180/mês</td></tr>
+            <tr><td>Verba sugerida de anúncios em Paraíso <small>Leve R$ 100 · Recomendado R$ 290 · Forte R$ 580</small></td><td class="val">R$ 290/mês</td></tr>
+            <tr><td>Campanha de data especial <small>Volta às aulas, torneios, formaturas: oferta + 4 artes + Reels + msgs + ads</small></td><td class="val">R$ 390</td></tr>
+            <tr><td>Campanha adicional contratada junto <small>Cada data extra na mesma solicitação</small></td><td class="val">R$ 300</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="terms-box">
+        <h3>Condições padrão DLuz Digital</h3>
+        <ul>
+          <li>Contrato mínimo de <strong>6 meses</strong> para planos mensais recorrentes (serviços avulsos pontuais não exigem fidelidade de gestão social).</li>
+          <li>Mensalidade com vencimento até o <strong>dia 10</strong> de cada mês.</li>
+          <li>Pagamento único (implantação ou criação do site) parcelado em até <strong>2x</strong>, junto com as 2 primeiras mensalidades.</li>
+          <li>Verba dos anúncios paga à DLuz junto com a mensalidade e direcionada integralmente para a veiculação no Facebook e Instagram.</li>
+          <li>Proposta e valores válidos por <strong>15 dias</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="sheet-footer">
+      <span><strong>DLuz Digital</strong> · Paraíso do Tocantins - TO · digital.dluz.com.br</span>
+      <span>Material exclusivo para <strong>Ale Uniformes</strong> (@aleuniformess)</span>
+    </footer>
+  </main>
+
+</body>
+</html>
